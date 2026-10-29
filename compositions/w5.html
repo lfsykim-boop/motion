@@ -1,0 +1,36 @@
+<template>
+  <style>
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-ExtraBold.woff2') format('woff2'); font-weight: 800; }
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight: 500; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #5A3720; font-family: "Pretendard", sans-serif; }
+    .cam, .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .w { position: absolute; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .w span { display: inline-block; }
+  </style>
+  <div data-hf-id="hf-nax2" id="root" data-composition-id="w5" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-nh55" id="w5-cam" class="cam"><div data-hf-id="hf-oh6x" id="w5-stage" class="stage">
+      <svg data-hf-id="hf-3zii" class="art" viewBox="0 0 1920 1080">
+        <rect data-hf-id="hf-8i1x" x="1652" y="-40" width="18" height="1160" fill="#3B2414"/>
+        <circle data-hf-id="hf-lyv1" cx="1340" cy="560" r="160" fill="#E2D4BC"/>
+        <g data-hf-id="hf-wlj4" id="w5-knob">
+          <circle data-hf-id="hf-9fvn" cx="1340" cy="560" r="112" fill="#F3EBDD" stroke="#3B2414" stroke-width="10"/>
+          <line data-hf-id="hf-f2r4" x1="1340" y1="498" x2="1340" y2="464" stroke="#1E1B18" stroke-width="16" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div data-hf-id="hf-jrkb" class="w" style="left:220px; top:450px; font-size:200px; color:#F3EBDD;">
+        <span data-hf-id="hf-4aaa" id="w5-c0">문</span><span data-hf-id="hf-uckh">&nbsp;</span><span data-hf-id="hf-cjfl" id="w5-c1">열</span><span data-hf-id="hf-hznw" id="w5-c2">고</span></div>
+    </div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#w5-stage", { scale: 0.12 }, { scale: 1, duration: 0.9, ease: "expo.out", transformOrigin: "960px 540px" }, 0);
+    const B = [0, .45, .86, 1.29, 1.71, 2.14, 2.56, 3.00];
+    tl.fromTo("#w5-c0", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "power4.out" }, B[1] - 0.05);
+    tl.fromTo("#w5-knob", { rotation: 0, svgOrigin: "1340 560" }, { rotation: -90, duration: 0.35, ease: "power3.out", svgOrigin: "1340 560" }, B[2] - 0.06);
+    tl.fromTo(["#w5-c1", "#w5-c2"], { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.3, ease: "power4.out", stagger: 0.06 }, B[3] - 0.05);
+    tl.fromTo("#w5-cam", { scale: 1 }, { scale: 40, duration: 0.58, ease: "power3.in", transformOrigin: "1340px 560px" }, 2.79);
+
+    window.__timelines["w5"] = tl;
+  </script>
+</template>

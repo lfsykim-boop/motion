@@ -1,0 +1,25 @@
+<template>
+  <style>
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-ExtraBold.woff2') format('woff2'); font-weight: 800; }
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight: 500; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F3EBDD; font-family: "Pretendard", sans-serif; }
+    .cam, .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .w { position: absolute; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .w span { display: inline-block; }
+  </style>
+  <div data-hf-id="hf-p11x" id="root" data-composition-id="s0" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-jygw" id="s0-cam" class="cam">
+      <div data-hf-id="hf-gub1" id="s0-sub" class="w" style="left:486px; top:178px; font-size:112px; font-weight:500; color:#1E1B18;">10월의</div>
+      <div data-hf-id="hf-iuix" id="s0-word" class="w" style="left:476px; top:290px; font-size:560px; color:#1E1B18;">아침</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s0-cam", { scale: 6 }, { scale: 1, duration: 1.6, ease: "expo.out", transformOrigin: "624px 533px" }, 0);
+    tl.fromTo("#s0-sub", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power4.out" }, 1.17);
+    tl.to("#s0-cam", { scale: 24, duration: 0.56, ease: "power3.in", transformOrigin: "624px 533px" }, 3.15);
+
+    window.__timelines["s0"] = tl;
+  </script>
+</template>

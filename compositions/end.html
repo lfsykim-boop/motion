@@ -1,0 +1,26 @@
+<template>
+  <style>
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-ExtraBold.woff2') format('woff2'); font-weight: 800; }
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight: 500; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F3EBDD; font-family: "Pretendard", sans-serif; }
+    .cam, .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .w { position: absolute; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .w span { display: inline-block; }
+  </style>
+  <div data-hf-id="hf-han5" id="root" data-composition-id="end" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-m3t0" id="end-cam" class="cam">
+      <svg data-hf-id="hf-3zii" class="art" viewBox="0 0 1920 1080"><ellipse data-hf-id="hf-lvhx" cx="735" cy="439" rx="112" ry="80" fill="#2FA35B"/></svg>
+      <div data-hf-id="hf-szo6" id="end-word" class="w" style="left:511px; top:260px; font-size:520px; color:#1E1B18;">오늘</div>
+    </div>
+    <div data-hf-id="hf-bq16" id="end-sub" class="w" style="left:1060px; top:800px; font-size:100px; color:#1E1B18;">10월, 시작</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const B = [0, .43, .85, 1.29, 1.71, 2.15, 2.57, 3.00];
+    tl.fromTo("#end-cam", { scale: 20 }, { scale: 1, duration: B[4], ease: "expo.out", transformOrigin: "735px 439px" }, 0);
+    tl.fromTo("#end-sub", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.5, ease: "power4.out" }, B[6] - 0.08);
+
+    window.__timelines["end"] = tl;
+  </script>
+</template>

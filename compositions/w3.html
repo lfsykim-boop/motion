@@ -1,0 +1,41 @@
+<template>
+  <style>
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-ExtraBold.woff2') format('woff2'); font-weight: 800; }
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight: 500; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #F3EBDD; font-family: "Pretendard", sans-serif; }
+    .cam, .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .w { position: absolute; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .w span { display: inline-block; }
+  </style>
+  <div data-hf-id="hf-7zzk" id="root" data-composition-id="w3" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-x9yv" id="w3-cam" class="cam"><div data-hf-id="hf-rzrz" id="w3-stage" class="stage">
+      <svg data-hf-id="hf-3zii" class="art" viewBox="0 0 1920 1080">
+        <defs data-hf-id="hf-mh0t"><clipPath data-hf-id="hf-ypj6" id="w3-clip"><path data-hf-id="hf-i2el" d="M470 540 Q960 215 1450 540 Q960 865 470 540 Z"/></clipPath></defs>
+        <g data-hf-id="hf-7rnh" id="w3-eye">
+          <path data-hf-id="hf-yu8y" d="M470 540 Q960 215 1450 540 Q960 865 470 540 Z" fill="#FFFFFF"/>
+          <g data-hf-id="hf-r8om" clip-path="url(#w3-clip)">
+            <circle data-hf-id="hf-m8we" cx="960" cy="540" r="168" fill="#5A3720"/>
+            <circle data-hf-id="hf-uqdh" cx="960" cy="540" r="80" fill="#1E1B18"/>
+            <circle data-hf-id="hf-wvmz" cx="1032" cy="468" r="26" fill="#F3EBDD"/>
+          </g>
+          <path data-hf-id="hf-coi5" d="M470 540 Q960 215 1450 540 Q960 865 470 540 Z" fill="none" stroke="#1E1B18" stroke-width="20" stroke-linejoin="round"/>
+        </g>
+      </svg>
+      <div data-hf-id="hf-xbiz" id="w3-l" class="w" style="left:150px; top:400px; font-size:280px; color:#1E1B18;">번</div>
+      <div data-hf-id="hf-5aka" id="w3-r" class="w" style="left:1490px; top:400px; font-size:280px; color:#1E1B18;">쩍</div>
+    </div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#w3-stage", { scale: 0.12 }, { scale: 1, duration: 0.9, ease: "expo.out", transformOrigin: "960px 540px" }, 0);
+    const B = [0, .42, .85, 1.29, 1.71, 2.14, 2.57, 3.00];
+    tl.set("#w3-eye", { scaleY: 0.04, svgOrigin: "960 540" }, 0);
+    tl.to("#w3-eye", { scaleY: 1, duration: 0.16, ease: "expo.out", svgOrigin: "960 540" }, B[2] - 0.04);
+    tl.fromTo("#w3-l", { x: -620 }, { x: 0, duration: 0.24, ease: "expo.out" }, B[2] - 0.12);
+    tl.fromTo("#w3-r", { x: 620 }, { x: 0, duration: 0.24, ease: "expo.out" }, B[2] - 0.12);
+    tl.fromTo("#w3-cam", { scale: 1 }, { scale: 16, duration: 0.58, ease: "power3.in", transformOrigin: "960px 540px" }, 2.81);
+
+    window.__timelines["w3"] = tl;
+  </script>
+</template>

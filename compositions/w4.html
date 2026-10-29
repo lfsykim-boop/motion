@@ -1,0 +1,35 @@
+<template>
+  <style>
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-ExtraBold.woff2') format('woff2'); font-weight: 800; }
+    @font-face { font-family: "Pretendard"; src: url('assets/fonts/Pretendard-Medium.woff2') format('woff2'); font-weight: 500; }
+    #root { position: absolute; inset: 0; overflow: hidden; background: #1E1B18; font-family: "Pretendard", sans-serif; }
+    .cam, .stage { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+    .art { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; }
+    .w { position: absolute; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .w span { display: inline-block; }
+  </style>
+  <div data-hf-id="hf-t8ed" id="root" data-composition-id="w4" data-width="1920" data-height="1080" data-layout-allow-overflow>
+    <div data-hf-id="hf-fn80" id="w4-cam" class="cam"><div data-hf-id="hf-njdg" id="w4-stage" class="stage">
+      <svg data-hf-id="hf-3zii" class="art" viewBox="0 0 1920 1080">
+        <circle data-hf-id="hf-ieiv" cx="1240" cy="540" r="330" fill="#F3EBDD"/>
+        <circle data-hf-id="hf-4xlj" cx="1240" cy="540" r="282" fill="none" stroke="#DCCFB9" stroke-width="8"/>
+        <ellipse data-hf-id="hf-o8f0" cx="1502" cy="540" rx="62" ry="40" fill="none" stroke="#FFFFFF" stroke-width="30"/>
+        <circle data-hf-id="hf-zv7r" cx="1240" cy="540" r="235" fill="#FFFFFF"/>
+        <circle data-hf-id="hf-7p9p" cx="1240" cy="540" r="200" fill="#5A3720"/>
+        <circle data-hf-id="hf-v5mm" id="w4-crema" cx="1240" cy="540" r="150" fill="none" stroke="#B07A4C" stroke-width="12"/>
+      </svg>
+      <div data-hf-id="hf-p0vk" class="w" style="left:170px; top:450px; font-size:180px; color:#F3EBDD;">
+        <span data-hf-id="hf-9nei" id="w4-c0">첫</span><span data-hf-id="hf-uckh">&nbsp;</span><span data-hf-id="hf-harw" id="w4-c1">모</span><span data-hf-id="hf-40jx" id="w4-c2">금</span></div>
+    </div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#w4-stage", { scale: 0.12 }, { scale: 1, duration: 0.9, ease: "expo.out", transformOrigin: "960px 540px" }, 0);
+    const B = [0, .42, .86, 1.28, 1.71, 2.15, 2.57, 3.00];
+    ["#w4-c0", "#w4-c1", "#w4-c2"].forEach((s, i) => { tl.set(s, { opacity: 0 }, 0); tl.set(s, { opacity: 1 }, B[i + 1]); });
+    tl.fromTo("#w4-crema", { scale: 0.55, svgOrigin: "1240 540" }, { scale: 1, duration: 0.7, ease: "expo.out", svgOrigin: "1240 540" }, B[4]);
+    tl.fromTo("#w4-cam", { scale: 1 }, { scale: 12, duration: 0.58, ease: "power3.in", transformOrigin: "1240px 540px" }, 2.8);
+
+    window.__timelines["w4"] = tl;
+  </script>
+</template>
